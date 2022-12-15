@@ -19,16 +19,13 @@ public class EmployeeService {
     public Employee findEmployeeById(Long id){
         return employeeRepo.findById(id).orElseThrow(() -> new NotFoundException("Employee by id " +id+" was not found!"));
     }
-    public Employee addEmployee(Employee employee){
+    public Employee addOrUpdateEmployee(Employee employee){
         return employeeRepo.save(employee);
     }
     public List<Employee> findAllEmployees(){
         return employeeRepo.findAll();
     }
 
-    public Employee updateEmployee(Employee employee){
-        return employeeRepo.save(employee);
-    }
     public void deleteEmployee(Long id){
         employeeRepo.deleteById(id);
     }

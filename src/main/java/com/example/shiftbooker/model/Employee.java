@@ -1,14 +1,16 @@
 package com.example.shiftbooker.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
+
 @NoArgsConstructor
-@Getter @Setter @AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
 @Entity(name = "mitarbeiter")
 public class Employee implements Serializable {
     @Id
@@ -20,5 +22,8 @@ public class Employee implements Serializable {
     private String jobPosition;
     private String phone;
     private Integer maxHours;
+
+    @OneToMany
+    private List<Shift> shifts;
 
 }
